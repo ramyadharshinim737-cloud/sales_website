@@ -18,7 +18,7 @@
 
     <script>
         // Backend la irundhu price-ah edukka porom
-        fetch('http://13.61.146.47:3000/api/price')
+        fetch('http://16.170.141.181:3000/api/price')
             .then(res => res.json())
             .then(data => {
                 document.getElementById('price').innerText = "Price: $" + data.price;
