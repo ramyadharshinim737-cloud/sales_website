@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ramya's Gadget Store</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #f4f4f4; }
+        .product-card { background: white; padding: 20px; border-radius: 10px; display: inline-block; margin: 20px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        button { background: #ff9900; border: none; padding: 10px; cursor: pointer; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔥 Mega Sales 2026 🔥</h1>
+    <div class="product-card">
+        <h2>Smart Watch</h2>
+        <p id="price">Price: Loading...</p>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+
+    <script>
+        // Backend la irundhu price-ah edukka porom
+        fetch('http://13.61.146.47:3000/api/price')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('price').innerText = "Price: $" + data.price;
+            });
+
+        function buyNow() { alert("Order Placed Successfully!"); }
+    </script>
+</body>
+</html>
