@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ramya's Mega Store</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; text-align: center; background: #f4f7f6; padding: 20px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
-        .card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
-        .emoji { font-size: 60px; }
-        .price { color: #ff9900; font-weight: bold; font-size: 20px; }
-        button { background: #333; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
-    </style>
-</head>
-<body>
-    <h1>🔥 Mega Sales 2026: 10 Hot Deals! 🔥</h1>
-    <div class="grid" id="products"></div>
-
-    <script>
+<script>
+        // Unga backend IP check pannikonga
         fetch('http://16.170.141.181:3000/api/products')
             .then(res => res.json())
             .then(data => {
@@ -26,10 +10,9 @@
                             <div class="emoji">${p.img}</div>
                             <h3>${p.name}</h3>
                             <p class="price">$${p.price}</p>
-                            <button>Buy Now</button>
+                            <button onclick="alert('Order Placed Successfully for ${p.name}!')">Buy Now</button>
                         </div>`;
                 });
-            });
+            })
+            .catch(err => console.error("Error: ", err));
     </script>
-</body>
-</html>
